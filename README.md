@@ -31,3 +31,9 @@
   ## Final App
 
   ## Technologies Used
+
+  * Xcode 15.2: The YolkTimer app is developed using Xcode, Apple's integrated development environment (IDE) for macOS. Xcode provides all the necessary tools for designing, coding, testing, and debugging iOS apps.
+  * Swift 5.9.2: The YolkTimer app is written in Swift, Apple's programming language for developing iOS, macOS, watchOS, and tvOS apps. Swift 5.9.2 is the specific version of Swift used in this project, offering the latest features and improvements.
+  * Figma: Figma is a collaborative interface design tool used for creating user interface (UI) designs, prototypes, and design systems. The UI and visual elements of the YolkTimer app are designed using Figma, allowing for efficient collaboration and iteration during the design process.
+
+By leveraging Xcode, Swift 5.9.2, and Figma, the YolkTimer app delivers a seamless and intuitive user experience for boiling eggs to perfection.
