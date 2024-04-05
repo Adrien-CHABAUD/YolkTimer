@@ -11,6 +11,8 @@
 		E928AD992BC0205800EBA0BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E928AD982BC0205800EBA0BF /* ContentView.swift */; };
 		E928AD9B2BC0205A00EBA0BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E928AD9A2BC0205A00EBA0BF /* Assets.xcassets */; };
 		E928AD9E2BC0205A00EBA0BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E928AD9D2BC0205A00EBA0BF /* Preview Assets.xcassets */; };
+		E928ADA52BC034D500EBA0BF /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E928ADA42BC034D500EBA0BF /* StartView.swift */; };
+		E928ADA72BC034EC00EBA0BF /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E928ADA62BC034EC00EBA0BF /* StartViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		E928AD982BC0205800EBA0BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E928AD9A2BC0205A00EBA0BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E928AD9D2BC0205A00EBA0BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E928ADA42BC034D500EBA0BF /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		E928ADA62BC034EC00EBA0BF /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 			children = (
 				E928AD962BC0205800EBA0BF /* YolkTimerApp.swift */,
 				E928AD982BC0205800EBA0BF /* ContentView.swift */,
+				E928ADA82BC034F600EBA0BF /* StartView */,
 				E928AD9A2BC0205A00EBA0BF /* Assets.xcassets */,
 				E928AD9C2BC0205A00EBA0BF /* Preview Content */,
 			);
@@ -65,6 +70,15 @@
 				E928AD9D2BC0205A00EBA0BF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E928ADA82BC034F600EBA0BF /* StartView */ = {
+			isa = PBXGroup;
+			children = (
+				E928ADA42BC034D500EBA0BF /* StartView.swift */,
+				E928ADA62BC034EC00EBA0BF /* StartViewModel.swift */,
+			);
+			path = StartView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +151,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E928ADA52BC034D500EBA0BF /* StartView.swift in Sources */,
+				E928ADA72BC034EC00EBA0BF /* StartViewModel.swift in Sources */,
 				E928AD992BC0205800EBA0BF /* ContentView.swift in Sources */,
 				E928AD972BC0205800EBA0BF /* YolkTimerApp.swift in Sources */,
 			);
