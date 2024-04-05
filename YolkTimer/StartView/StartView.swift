@@ -9,7 +9,27 @@ import SwiftUI
 
 struct StartView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.backgroundColor1
+                .ignoresSafeArea()
+            
+            VStack {
+                // Display background rectangles + offset them
+                backgroundRectangle()
+                    .offset(x:-70, y:200)
+                backgroundRectangle()
+                    .offset(x: 100, y: -100)
+            }
+            
+        }
+    }
+    
+    // Handle base settings of the background rectangle
+    fileprivate func backgroundRectangle() -> some View {
+        return Rectangle()
+            .foregroundStyle(Color.backgroundColor2)
+            .rotationEffect(Angle(degrees: 41))
+            .frame(width: 300, height: 794)
     }
 }
 
