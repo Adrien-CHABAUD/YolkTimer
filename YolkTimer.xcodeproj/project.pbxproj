@@ -13,6 +13,8 @@
 		E928AD9E2BC0205A00EBA0BF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E928AD9D2BC0205A00EBA0BF /* Preview Assets.xcassets */; };
 		E928ADA52BC034D500EBA0BF /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E928ADA42BC034D500EBA0BF /* StartView.swift */; };
 		E928ADA72BC034EC00EBA0BF /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E928ADA62BC034EC00EBA0BF /* StartViewModel.swift */; };
+		E928ADAA2BC04B5C00EBA0BF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E928ADA92BC04B5C00EBA0BF /* Model.swift */; };
+		E928ADAC2BC04F6E00EBA0BF /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E928ADAB2BC04F6E00EBA0BF /* Styles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		E928AD9D2BC0205A00EBA0BF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E928ADA42BC034D500EBA0BF /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		E928ADA62BC034EC00EBA0BF /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		E928ADA92BC04B5C00EBA0BF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E928ADAB2BC04F6E00EBA0BF /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +59,10 @@
 		E928AD952BC0205800EBA0BF /* YolkTimer */ = {
 			isa = PBXGroup;
 			children = (
+				E928ADAB2BC04F6E00EBA0BF /* Styles.swift */,
 				E928AD962BC0205800EBA0BF /* YolkTimerApp.swift */,
 				E928AD982BC0205800EBA0BF /* ContentView.swift */,
+				E928ADA92BC04B5C00EBA0BF /* Model.swift */,
 				E928ADA82BC034F600EBA0BF /* StartView */,
 				E928AD9A2BC0205A00EBA0BF /* Assets.xcassets */,
 				E928AD9C2BC0205A00EBA0BF /* Preview Content */,
@@ -151,8 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E928ADAA2BC04B5C00EBA0BF /* Model.swift in Sources */,
 				E928ADA52BC034D500EBA0BF /* StartView.swift in Sources */,
 				E928ADA72BC034EC00EBA0BF /* StartViewModel.swift in Sources */,
+				E928ADAC2BC04F6E00EBA0BF /* Styles.swift in Sources */,
 				E928AD992BC0205800EBA0BF /* ContentView.swift in Sources */,
 				E928AD972BC0205800EBA0BF /* YolkTimerApp.swift in Sources */,
 			);
