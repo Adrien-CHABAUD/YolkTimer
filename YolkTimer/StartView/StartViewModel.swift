@@ -7,6 +7,7 @@
 
 import Foundation
 
-final class StartViewModel {
-    
+final class StartViewModel: ObservableObject {
+    @Published var pickerSelection: EggCookState = .runnyState
+
 }

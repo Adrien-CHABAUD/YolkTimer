@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import SwiftUI
+
+enum EggCookState: String, Equatable, CaseIterable {
+    case runnyState = "Runny"
+    case softState = "Soft"
+    case hardState = "Hard"
+    
+    var localizedName: LocalizedStringKey { LocalizedStringKey(rawValue)}
+}
