@@ -19,8 +19,6 @@ struct StartView: View {
             
             // Interface
             VStack {
-                Spacer()
-                
                 // Top buttons
                 Picker("Test", selection: $viewModel.pickerSelection) {
                     ForEach(EggCookState.allCases, id: \.self){ value in
@@ -28,10 +26,9 @@ struct StartView: View {
                     }
                 }
                 .pickerStyle(.segmented)
-                .colorMultiply(Color.color1)
-                .background(Color.color2)
-                .onChange(of: viewModel.pickerSelection){ print($viewModel.pickerSelection.wrappedValue)}
                 .padding(.horizontal, 10)
+                .colorMultiply(Color.color1)
+                .onChange(of: viewModel.pickerSelection){ print($viewModel.pickerSelection.wrappedValue)}
                 
                 Spacer()
                 
@@ -42,7 +39,7 @@ struct StartView: View {
                 
                 Spacer()
             
-                Text("03:00")
+                Text("\(viewModel.pickerSelection.rawValue == "Runny" ? "3:00" : viewModel.pickerSelection.rawValue == "Soft" ? "6:00" : "9:00")")
                     .font(.largeTitle)
                     .foregroundStyle(Color("TextColor"))
                     .padding(.bottom, 20)
