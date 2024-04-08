@@ -39,13 +39,20 @@ struct StartView: View {
                 
                 Spacer()
             
-                Text("\(viewModel.pickerSelection.rawValue == "Runny" ? "3:00" : viewModel.pickerSelection.rawValue == "Soft" ? "6:00" : "9:00")")
+                Text("\(viewModel.timeFormatted())")
                     .font(.largeTitle)
                     .foregroundStyle(Color("TextColor"))
                     .padding(.bottom, 20)
                 
-                Button(action: {}, label: {
-                    Text("START")
+                Button(action: {
+                    viewModel.isRunning.toggle()
+                    if viewModel.isRunning {
+                        viewModel.startTimer()
+                    } else {
+                        viewModel.stopTimer()
+                    }
+                }, label: {
+                    Text(viewModel.isRunning ? "STOP" : "START")
                 }).buttonStyle(MainButton())
                 
                 Spacer()
