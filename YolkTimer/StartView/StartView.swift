@@ -14,12 +14,14 @@ struct StartView: View {
     
     var body: some View {
         ZStack {
-            Color.backgroundColor1
+            Image("Background_YolkTimer")
+                .resizable()
                 .ignoresSafeArea()
             
             // Interface
             VStack {
-                // Top buttons
+
+                // Top Picker
                 Picker("Test", selection: $viewModel.pickerSelection) {
                     ForEach(EggCookState.allCases, id: \.self){ value in
                         Text(value.localizedName).tag(value)
@@ -33,6 +35,7 @@ struct StartView: View {
                 
                 Spacer()
                 
+                // Main image
                 Image("EggImage")
                     .resizable()
                     .scaledToFit()
@@ -40,11 +43,13 @@ struct StartView: View {
                 
                 Spacer()
             
+                // Time formatted
                 Text("\(viewModel.timeFormatted())")
                     .font(.largeTitle)
                     .foregroundStyle(Color("TextColor"))
                     .padding(.bottom, 20)
                 
+                // Bottom Button
                 Button(action: {
                     viewModel.isRunning.toggle()
                     if viewModel.isRunning {

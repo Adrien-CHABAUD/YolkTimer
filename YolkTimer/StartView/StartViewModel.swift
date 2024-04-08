@@ -9,17 +9,20 @@ import Foundation
 
 final class StartViewModel: ObservableObject {
     @Published var pickerSelection: EggCookState = .runnyState
-    @Published private var timeRemaining: TimeInterval = 180
-    @Published var timer: Timer?
     @Published var isRunning: Bool = false
     @Published var isPickerDisabled: Bool = false
+    @Published private var timeRemaining: TimeInterval = 180
     
+    private var timer: Timer?
+    
+    // Format the remaining time to be displayed
     func timeFormatted() -> String {
         let minutes = Int(timeRemaining) / 60
         let seconds = Int(timeRemaining) % 60
         return String(format: "%02d:%02d", minutes, seconds)
     }
     
+    // Starts the timer
     func startTimer() {
         self.isPickerDisabled = true
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
@@ -31,6 +34,7 @@ final class StartViewModel: ObservableObject {
         })
     }
     
+    // Stops the timer
     func stopTimer() {
         isRunning = false
         timer?.invalidate()
@@ -38,6 +42,10 @@ final class StartViewModel: ObservableObject {
         timeRemaining = 180
     }
     
+    /*
+     *  Change the time of the timer according to
+     *  what cooking the user selected
+     */
     func selectTime() {
         switch pickerSelection {
         case .runnyState:
@@ -48,5 +56,5 @@ final class StartViewModel: ObservableObject {
             timeRemaining = 540
         }
     }
-
+    
 }
