@@ -39,7 +39,7 @@ final class StartViewModel: ObservableObject {
         isRunning = false
         timer?.invalidate()
         isPickerDisabled = false
-        timeRemaining = 180
+        selectTime()
     }
     
     /*
