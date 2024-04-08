@@ -28,7 +28,8 @@ struct StartView: View {
                 .pickerStyle(.segmented)
                 .padding(.horizontal, 10)
                 .colorMultiply(Color.color1)
-                .onChange(of: viewModel.pickerSelection){ print($viewModel.pickerSelection.wrappedValue)}
+                .onChange(of: viewModel.pickerSelection){ viewModel.selectTime()}
+                .disabled(viewModel.isPickerDisabled)
                 
                 Spacer()
                 

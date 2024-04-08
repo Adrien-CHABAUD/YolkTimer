@@ -12,6 +12,7 @@ final class StartViewModel: ObservableObject {
     @Published private var timeRemaining: TimeInterval = 180
     @Published var timer: Timer?
     @Published var isRunning: Bool = false
+    @Published var isPickerDisabled: Bool = false
     
     func timeFormatted() -> String {
         let minutes = Int(timeRemaining) / 60
@@ -20,6 +21,7 @@ final class StartViewModel: ObservableObject {
     }
     
     func startTimer() {
+        self.isPickerDisabled = true
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
             if self.timeRemaining > 0 {
                 self.timeRemaining -= 1
@@ -32,7 +34,19 @@ final class StartViewModel: ObservableObject {
     func stopTimer() {
         isRunning = false
         timer?.invalidate()
+        isPickerDisabled = false
         timeRemaining = 180
+    }
+    
+    func selectTime() {
+        switch pickerSelection {
+        case .runnyState:
+            timeRemaining = 180
+        case .softState:
+            timeRemaining = 360
+        case .hardState:
+            timeRemaining = 540
+        }
     }
 
 }
