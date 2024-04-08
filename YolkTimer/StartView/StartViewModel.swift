@@ -11,7 +11,9 @@ final class StartViewModel: ObservableObject {
     @Published var pickerSelection: EggCookState = .runnyState
     @Published var isRunning: Bool = false
     @Published var isPickerDisabled: Bool = false
+    @Published var isFactDisabled: Bool = true
     @Published private var timeRemaining: TimeInterval = 180
+    @Published var factDisplay: String = funFacts().facts[0]
     
     private var timer: Timer?
     
@@ -24,10 +26,17 @@ final class StartViewModel: ObservableObject {
     
     // Starts the timer
     func startTimer() {
-        self.isPickerDisabled = true
+        isPickerDisabled = true
+        isFactDisabled = false
+                
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
             if self.timeRemaining > 0 {
                 self.timeRemaining -= 1
+                
+                // Update the fact every 20secs.
+                if Int(self.timeRemaining) % 20 == 0 {
+                    self.selectFact()
+                }
             } else {
                 self.stopTimer()
             }
@@ -39,6 +48,7 @@ final class StartViewModel: ObservableObject {
         isRunning = false
         timer?.invalidate()
         isPickerDisabled = false
+        isFactDisabled = true
         selectTime()
     }
     
@@ -55,6 +65,12 @@ final class StartViewModel: ObservableObject {
         case .hardState:
             timeRemaining = 540
         }
+    }
+    
+    // Randomly selects fun facts to display
+    func selectFact() {
+        let number = Int.random(in: 0...funFacts().facts.count)
+        factDisplay = funFacts().facts[number]
     }
     
 }

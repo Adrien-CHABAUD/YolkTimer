@@ -61,8 +61,17 @@ struct StartView: View {
                     Text(viewModel.isRunning ? "STOP" : "START")
                 }).buttonStyle(MainButton())
                 
+                // Fun Fact
+                Text("\(viewModel.factDisplay)")
+                    .fontWeight(.light)
+                    .italic()
+                    .foregroundColor(Color("TextColor"))
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 20.0)
+                    .padding(.top, 20.0)
+                    .opacity(viewModel.isFactDisabled ? 0 : 1)
+                    
                 Spacer()
-                
                 
             }
         }
