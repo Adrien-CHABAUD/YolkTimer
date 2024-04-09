@@ -73,4 +73,20 @@ final class StartViewModel: ObservableObject {
         factDisplay = funFacts().facts[number]
     }
     
+    func selectPicture() -> String {
+        // Cooking State
+        if isRunning {
+            return "SaucePan"
+        }
+        
+        switch pickerSelection {
+        case .runnyState:
+            return "RunnyEgg"
+        case .softState:
+            return "SoftBoiledEgg"
+        case .hardState:
+            return "HardBoiledEgg"
+        }
+    }
+    
 }

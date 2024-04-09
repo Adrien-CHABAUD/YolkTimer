@@ -36,10 +36,10 @@ struct StartView: View {
                 Spacer()
                 
                 // Main image
-                Image("EggImage")
+                Image(viewModel.selectPicture())
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 211)
+                    .frame(width: 250)
                 
                 Spacer()
             
