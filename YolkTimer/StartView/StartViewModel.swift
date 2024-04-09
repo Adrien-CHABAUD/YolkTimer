@@ -15,6 +15,7 @@ final class StartViewModel: ObservableObject {
     @Published private var timeRemaining: TimeInterval = 180
     @Published var factDisplay: String = funFacts().facts[0]
     
+    
     private var timer: Timer?
     
     // Format the remaining time to be displayed
@@ -69,7 +70,7 @@ final class StartViewModel: ObservableObject {
     
     // Randomly selects fun facts to display
     func selectFact() {
-        let number = Int.random(in: 0...funFacts().facts.count)
+        let number = Int.random(in: 0...funFacts().facts.count-1)
         factDisplay = funFacts().facts[number]
     }
     
@@ -88,5 +89,4 @@ final class StartViewModel: ObservableObject {
             return "HardBoiledEgg"
         }
     }
-    
 }
