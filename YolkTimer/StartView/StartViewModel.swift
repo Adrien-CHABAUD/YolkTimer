@@ -64,7 +64,7 @@ final class StartViewModel: ObservableObject {
     }
     
     private func getRemainingTime() -> TimeInterval {
-        
+        return self.timeLimit - self.elapsedTime
     }
     
     private func getElapsedTime() -> TimeInterval {
