@@ -51,7 +51,11 @@ final class StartViewModel: ObservableObject {
     }
     
     private func reset() -> Void {
-        
+        self.accumulatedTime = 0
+        self.elapsedTime = 0
+        self.startTime = nil
+        self.isRunning = false
+        self.remainingTime = self.timeLimit
     }
     
     private func checkCompletion() -> Bool {
