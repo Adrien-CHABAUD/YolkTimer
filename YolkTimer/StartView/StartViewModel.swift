@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class StartViewModel: ObservableObject {
     @Published var pickerSelection: EggCookState = .runnyState
@@ -14,6 +15,48 @@ final class StartViewModel: ObservableObject {
     @Published var isFactDisabled: Bool = true
     @Published private var timeRemaining: TimeInterval = 180
     @Published var factDisplay: String = funFacts().facts[0]
+    
+    private var timeLimit: TimeInterval = TimeInterval(180)
+    private var startTime: Date?
+    private var accumulatedTime: TimeInterval = 0
+    private var timer: Cancellable?
+    private var elapsedTime: TimeInterval = 0
+    
+    @Published private(set) var remainingTime: TimeInterval = TimeInterval(180)
+    @Published var isRunning = false {
+        didSet {
+            if self.isRunning {
+                self.start()
+            } else {
+                self.stop()
+            }
+        }
+    }
+    
+    private func start() -> Void {
+        
+    }
+    
+    private func stop() -> Void {
+        
+    }
+    
+    private func reset() -> Void {
+        
+    }
+    
+    private func checkCompletion() -> Bool {
+        
+    }
+    
+    private func getRemainingTime() -> TimeInterval {
+        
+    }
+    
+    private func getElapsedTime() -> TimeInterval {
+        
+    }
+    
     
     
     private var timer: Timer?
