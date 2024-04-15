@@ -53,17 +53,18 @@ final class StartViewModel: ObservableObject {
         self.timer = nil
         self.accumulatedTime = self.getElapsedTime()
         self.startTime = nil
-        self.isFactDisabled = true
-        self.isPickerDisabled = false
-        self.selectTime()
     }
     
-    private func reset() -> Void {
+    func reset() -> Void {
         self.accumulatedTime = 0
         self.elapsedTime = 0
         self.startTime = nil
         self.isRunning = false
         self.remainingTime = self.timeLimit
+        
+        self.isFactDisabled = true
+        self.isPickerDisabled = false
+        self.selectTime()
     }
     
     private func checkCompletion() -> Bool {

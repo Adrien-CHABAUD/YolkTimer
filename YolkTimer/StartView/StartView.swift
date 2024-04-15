@@ -62,8 +62,16 @@ struct StartView: View {
                 Button(action: {
                     viewModel.isRunning.toggle()
                 }, label: {
-                    Text(viewModel.isRunning ? "STOP" : "START")
+                    Text(viewModel.isRunning ? "PAUSE" : "START")
                 }).buttonStyle(MainButton())
+                
+                Button(action: {
+                    self.viewModel.reset()
+                }, label: {
+                    Text("RESTART")
+                }).disabled(!self.viewModel.isRunning)
+                    .opacity(self.viewModel.isRunning ? 1 : 0)
+                .buttonStyle(SecondaryButton())
                 
                 // Fun Fact
                 Text("\(viewModel.factDisplay)")
