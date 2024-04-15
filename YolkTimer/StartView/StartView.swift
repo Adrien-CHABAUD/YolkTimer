@@ -9,6 +9,15 @@ import SwiftUI
 
 struct StartView: View {
     
+    private static var formatter: DateComponentsFormatter = {
+       let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .positional
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.zeroFormattingBehavior = [.pad]
+        formatter.allowsFractionalUnits = true
+        return formatter
+    }()
+    
     // ViewModel
     @ObservedObject var viewModel = StartViewModel()
     
