@@ -20,6 +20,8 @@ final class StartViewModel: ObservableObject {
     private var timer: Cancellable?
     private var elapsedTime: TimeInterval = 0
     
+    @Published private(set) var isOnHold: Bool = false
+    
     @Published private(set) var remainingTime: TimeInterval = TimeInterval(180)
     @Published var isRunning = false {
         didSet {
@@ -34,6 +36,8 @@ final class StartViewModel: ObservableObject {
     private func start() -> Void {
         self.isPickerDisabled = true
         self.isFactDisabled = false
+        
+        self.isOnHold = false
         
         self.timer?.cancel()
         self.timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect().sink { _ in
@@ -53,6 +57,7 @@ final class StartViewModel: ObservableObject {
         self.timer = nil
         self.accumulatedTime = self.getElapsedTime()
         self.startTime = nil
+        self.isOnHold = true
     }
     
     func reset() -> Void {
@@ -65,6 +70,8 @@ final class StartViewModel: ObservableObject {
         self.isFactDisabled = true
         self.isPickerDisabled = false
         self.selectTime()
+        
+        self.isOnHold = false
     }
     
     private func checkCompletion() -> Bool {
@@ -83,6 +90,17 @@ final class StartViewModel: ObservableObject {
     private func changeTimeLimit(timeInterval: TimeInterval) -> Void {
         self.timeLimit = timeInterval
         self.remainingTime = timeInterval
+    }
+    
+    func isResetDisabled() -> Bool {
+        if self.isOnHold {
+            print("isOnHold")
+            return false
+        } else if self.isRunning {
+            print("isRunning")
+            return false
+        }
+        return true
     }
     
    // private var timer: Timer?
@@ -148,7 +166,7 @@ final class StartViewModel: ObservableObject {
     
     func selectPicture() -> String {
         // Cooking State
-        if self.isRunning {
+        if !self.isResetDisabled() {
             return "SaucePan"
         }
         

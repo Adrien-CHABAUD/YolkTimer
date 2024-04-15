@@ -68,9 +68,9 @@ struct StartView: View {
                 Button(action: {
                     self.viewModel.reset()
                 }, label: {
-                    Text("RESTART")
-                }).disabled(!self.viewModel.isRunning)
-                    .opacity(self.viewModel.isRunning ? 1 : 0)
+                    Text("RESET")
+                }).disabled(self.viewModel.isResetDisabled())
+                    .opacity(self.viewModel.isResetDisabled() ? 0 : 1)
                 .buttonStyle(SecondaryButton())
                 
                 // Fun Fact
