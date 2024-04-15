@@ -85,6 +85,10 @@ struct StartView: View {
             }
         }
     }
+    
+    private func elapsedTimeStr(timeInterval: TimeInterval) -> String {
+        return StartView.formatter.string(from: timeInterval) ?? ""
+    }
 }
 
 #Preview {
