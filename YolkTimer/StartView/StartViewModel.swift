@@ -44,7 +44,10 @@ final class StartViewModel: ObservableObject {
     }
     
     private func stop() -> Void {
-        
+        self.timer?.cancel()
+        self.timer = nil
+        self.accumulatedTime = self.getElapsedTime()
+        self.startTime = nil
     }
     
     private func reset() -> Void {
