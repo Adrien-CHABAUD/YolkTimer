@@ -53,7 +53,7 @@ struct StartView: View {
                 Spacer()
             
                 // Time formatted
-                Text("\(viewModel.timeFormatted())")
+                Text("\(elapsedTimeStr(timeInterval: self.viewModel.remainingTime))")
                     .font(.largeTitle)
                     .foregroundStyle(Color("TextColor"))
                     .padding(.bottom, 20)
@@ -61,11 +61,6 @@ struct StartView: View {
                 // Bottom Button
                 Button(action: {
                     viewModel.isRunning.toggle()
-                    if viewModel.isRunning {
-                        viewModel.startTimer()
-                    } else {
-                        viewModel.stopTimer()
-                    }
                 }, label: {
                     Text(viewModel.isRunning ? "STOP" : "START")
                 }).buttonStyle(MainButton())
