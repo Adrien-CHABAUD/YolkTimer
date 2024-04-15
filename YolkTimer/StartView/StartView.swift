@@ -10,7 +10,7 @@ import SwiftUI
 struct StartView: View {
     
     private static var formatter: DateComponentsFormatter = {
-       let formatter = DateComponentsFormatter()
+        let formatter = DateComponentsFormatter()
         formatter.unitsStyle = .positional
         formatter.allowedUnits = [.hour, .minute, .second]
         formatter.zeroFormattingBehavior = [.pad]
@@ -29,7 +29,7 @@ struct StartView: View {
             
             // Interface
             VStack {
-
+                
                 // Top Picker
                 Picker("Test", selection: $viewModel.pickerSelection) {
                     ForEach(EggCookState.allCases, id: \.self){ value in
@@ -51,7 +51,7 @@ struct StartView: View {
                     .frame(width: 250)
                 
                 Spacer()
-            
+                
                 // Time formatted
                 Text("\(elapsedTimeStr(timeInterval: self.viewModel.remainingTime))")
                     .font(.largeTitle)
@@ -71,7 +71,7 @@ struct StartView: View {
                     Text("RESET")
                 }).disabled(self.viewModel.isResetDisabled())
                     .opacity(self.viewModel.isResetDisabled() ? 0 : 1)
-                .buttonStyle(SecondaryButton())
+                    .buttonStyle(SecondaryButton())
                 
                 // Fun Fact
                 Text("\(viewModel.factDisplay)")
@@ -82,7 +82,7 @@ struct StartView: View {
                     .padding(.horizontal, 20.0)
                     .padding(.top, 20.0)
                     .opacity(viewModel.isFactDisabled ? 0 : 1)
-                    
+                
                 Spacer()
                 
             }
