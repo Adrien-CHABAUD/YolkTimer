@@ -59,7 +59,8 @@ final class StartViewModel: ObservableObject {
     }
     
     private func checkCompletion() -> Bool {
-        
+        self.remainingTime = self.getRemainingTime()
+        return self.remainingTime <= 0
     }
     
     private func getRemainingTime() -> TimeInterval {
