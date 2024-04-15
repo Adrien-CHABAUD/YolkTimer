@@ -10,10 +10,8 @@ import Combine
 
 final class StartViewModel: ObservableObject {
     @Published var pickerSelection: EggCookState = .runnyState
-    @Published var isRunning: Bool = false
     @Published var isPickerDisabled: Bool = false
     @Published var isFactDisabled: Bool = true
-    @Published private var timeRemaining: TimeInterval = 180
     @Published var factDisplay: String = funFacts().facts[0]
     
     private var timeLimit: TimeInterval = TimeInterval(180)
@@ -34,10 +32,17 @@ final class StartViewModel: ObservableObject {
     }
     
     private func start() -> Void {
+        self.isPickerDisabled = true
+        self.isFactDisabled = false
+        
         self.timer?.cancel()
         self.timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect().sink { _ in
             self.elapsedTime = self.getElapsedTime()
             if self.checkCompletion() { self.isRunning.toggle() }
+            // Update the fact every 20secs.
+            if Int(self.remainingTime) % 20 == 0 {
+                self.selectFact()
+            }
         }
         
         self.startTime = Date()
@@ -48,6 +53,9 @@ final class StartViewModel: ObservableObject {
         self.timer = nil
         self.accumulatedTime = self.getElapsedTime()
         self.startTime = nil
+        self.isFactDisabled = true
+        self.isPickerDisabled = false
+        self.selectTime()
     }
     
     private func reset() -> Void {
@@ -71,44 +79,47 @@ final class StartViewModel: ObservableObject {
         return -(self.startTime?.timeIntervalSinceNow ?? 0) + self.accumulatedTime
     }
     
+    private func changeTimeLimit(timeInterval: TimeInterval) -> Void {
+        self.timeLimit = timeInterval
+        self.remainingTime = timeInterval
+    }
     
-    
-    private var timer: Timer?
+   // private var timer: Timer?
     
     // Format the remaining time to be displayed
-    func timeFormatted() -> String {
-        let minutes = Int(timeRemaining) / 60
-        let seconds = Int(timeRemaining) % 60
-        return String(format: "%02d:%02d", minutes, seconds)
-    }
+//    func timeFormatted() -> String {
+//        let minutes = Int(timeRemaining) / 60
+//        let seconds = Int(timeRemaining) % 60
+//        return String(format: "%02d:%02d", minutes, seconds)
+//    }
     
     // Starts the timer
-    func startTimer() {
-        isPickerDisabled = true
-        isFactDisabled = false
-                
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
-            if self.timeRemaining > 0 {
-                self.timeRemaining -= 1
-                
-                // Update the fact every 20secs.
-                if Int(self.timeRemaining) % 20 == 0 {
-                    self.selectFact()
-                }
-            } else {
-                self.stopTimer()
-            }
-        })
-    }
+//    func startTimer() {
+//        isPickerDisabled = true
+//        isFactDisabled = false
+//                
+//        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
+//            if self.timeRemaining > 0 {
+//                self.timeRemaining -= 1
+//                
+//                // Update the fact every 20secs.
+//                if Int(self.timeRemaining) % 20 == 0 {
+//                    self.selectFact()
+//                }
+//            } else {
+//                self.stopTimer()
+//            }
+//        })
+//    }
     
     // Stops the timer
-    func stopTimer() {
-        isRunning = false
-        timer?.invalidate()
-        isPickerDisabled = false
-        isFactDisabled = true
-        selectTime()
-    }
+//    func stopTimer() {
+//        isRunning = false
+//        timer?.invalidate()
+//        isPickerDisabled = false
+//        isFactDisabled = true
+//        selectTime()
+//    }
     
     /*
      *  Change the time of the timer according to
@@ -117,11 +128,14 @@ final class StartViewModel: ObservableObject {
     func selectTime() {
         switch pickerSelection {
         case .runnyState:
-            timeRemaining = 180
+            self.changeTimeLimit(timeInterval: TimeInterval(180))
+                //timeRemaining = 180
         case .softState:
-            timeRemaining = 360
+            self.changeTimeLimit(timeInterval: TimeInterval(360))
+            //timeRemaining = 360
         case .hardState:
-            timeRemaining = 540
+            self.changeTimeLimit(timeInterval: TimeInterval(540))
+            //timeRemaining = 540
         }
     }
     
@@ -133,11 +147,11 @@ final class StartViewModel: ObservableObject {
     
     func selectPicture() -> String {
         // Cooking State
-        if isRunning {
+        if self.isRunning {
             return "SaucePan"
         }
         
-        switch pickerSelection {
+        switch self.pickerSelection {
         case .runnyState:
             return "RunnyEgg"
         case .softState:
