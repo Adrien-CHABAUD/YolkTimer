@@ -34,7 +34,13 @@ final class StartViewModel: ObservableObject {
     }
     
     private func start() -> Void {
+        self.timer?.cancel()
+        self.timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect().sink { _ in
+            self.elapsedTime = self.getElapsedTime()
+            if self.checkCompletion() { self.isRunning.toggle() }
+        }
         
+        self.startTime = Date()
     }
     
     private func stop() -> Void {
