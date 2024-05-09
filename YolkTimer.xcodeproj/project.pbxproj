@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E9A93F6D2BC5B5A800B01882 /* PBXContainerItemProxy */ = {
+		E9B5F53D2BCDD820008D3FE9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E928AD8B2BC0205800EBA0BF /* Project object */;
 			proxyType = 1;
@@ -37,7 +37,7 @@
 		E928ADA62BC034EC00EBA0BF /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
 		E928ADA92BC04B5C00EBA0BF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E928ADAB2BC04F6E00EBA0BF /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
-		E9A93F692BC5B5A800B01882 /* YolkTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YolkTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9B5F5392BCDD820008D3FE9 /* YolkTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YolkTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +48,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9A93F662BC5B5A800B01882 /* Frameworks */ = {
+		E9B5F5362BCDD820008D3FE9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -70,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				E928AD932BC0205800EBA0BF /* YolkTimer.app */,
-				E9A93F692BC5B5A800B01882 /* YolkTimerTests.xctest */,
+				E9B5F5392BCDD820008D3FE9 /* YolkTimerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,22 +126,22 @@
 			productReference = E928AD932BC0205800EBA0BF /* YolkTimer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E9A93F682BC5B5A800B01882 /* YolkTimerTests */ = {
+		E9B5F5382BCDD820008D3FE9 /* YolkTimerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E9A93F6F2BC5B5A800B01882 /* Build configuration list for PBXNativeTarget "YolkTimerTests" */;
+			buildConfigurationList = E9B5F53F2BCDD820008D3FE9 /* Build configuration list for PBXNativeTarget "YolkTimerTests" */;
 			buildPhases = (
-				E9A93F652BC5B5A800B01882 /* Sources */,
-				E9A93F662BC5B5A800B01882 /* Frameworks */,
-				E9A93F672BC5B5A800B01882 /* Resources */,
+				E9B5F5352BCDD820008D3FE9 /* Sources */,
+				E9B5F5362BCDD820008D3FE9 /* Frameworks */,
+				E9B5F5372BCDD820008D3FE9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E9A93F6E2BC5B5A800B01882 /* PBXTargetDependency */,
+				E9B5F53E2BCDD820008D3FE9 /* PBXTargetDependency */,
 			);
 			name = YolkTimerTests;
 			productName = YolkTimerTests;
-			productReference = E9A93F692BC5B5A800B01882 /* YolkTimerTests.xctest */;
+			productReference = E9B5F5392BCDD820008D3FE9 /* YolkTimerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -157,7 +157,7 @@
 					E928AD922BC0205800EBA0BF = {
 						CreatedOnToolsVersion = 15.3;
 					};
-					E9A93F682BC5B5A800B01882 = {
+					E9B5F5382BCDD820008D3FE9 = {
 						CreatedOnToolsVersion = 15.3;
 						TestTargetID = E928AD922BC0205800EBA0BF;
 					};
@@ -177,7 +177,7 @@
 			projectRoot = "";
 			targets = (
 				E928AD922BC0205800EBA0BF /* YolkTimer */,
-				E9A93F682BC5B5A800B01882 /* YolkTimerTests */,
+				E9B5F5382BCDD820008D3FE9 /* YolkTimerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -192,7 +192,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9A93F672BC5B5A800B01882 /* Resources */ = {
+		E9B5F5372BCDD820008D3FE9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -215,7 +215,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9A93F652BC5B5A800B01882 /* Sources */ = {
+		E9B5F5352BCDD820008D3FE9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -225,10 +225,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E9A93F6E2BC5B5A800B01882 /* PBXTargetDependency */ = {
+		E9B5F53E2BCDD820008D3FE9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E928AD922BC0205800EBA0BF /* YolkTimer */;
-			targetProxy = E9A93F6D2BC5B5A800B01882 /* PBXContainerItemProxy */;
+			targetProxy = E9B5F53D2BCDD820008D3FE9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -410,7 +410,7 @@
 			};
 			name = Release;
 		};
-		E9A93F702BC5B5A800B01882 /* Debug */ = {
+		E9B5F5402BCDD820008D3FE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -432,7 +432,7 @@
 			};
 			name = Debug;
 		};
-		E9A93F712BC5B5A800B01882 /* Release */ = {
+		E9B5F5412BCDD820008D3FE9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -475,11 +475,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E9A93F6F2BC5B5A800B01882 /* Build configuration list for PBXNativeTarget "YolkTimerTests" */ = {
+		E9B5F53F2BCDD820008D3FE9 /* Build configuration list for PBXNativeTarget "YolkTimerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E9A93F702BC5B5A800B01882 /* Debug */,
-				E9A93F712BC5B5A800B01882 /* Release */,
+				E9B5F5402BCDD820008D3FE9 /* Debug */,
+				E9B5F5412BCDD820008D3FE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
