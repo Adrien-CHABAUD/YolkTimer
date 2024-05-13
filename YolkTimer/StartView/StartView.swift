@@ -9,6 +9,15 @@ import SwiftUI
 
 struct StartView: View {
     
+    private static var formatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .positional
+        formatter.allowedUnits = [.minute, .second]
+        formatter.zeroFormattingBehavior = [.pad]
+        formatter.allowsFractionalUnits = true
+        return formatter
+    }()
+    
     // ViewModel
     @ObservedObject var viewModel = StartViewModel()
     
@@ -20,7 +29,7 @@ struct StartView: View {
             
             // Interface
             VStack {
-
+                
                 // Top Picker
                 Picker("Test", selection: $viewModel.pickerSelection) {
                     ForEach(EggCookState.allCases, id: \.self){ value in
@@ -42,9 +51,9 @@ struct StartView: View {
                     .frame(width: 250)
                 
                 Spacer()
-            
+                
                 // Time formatted
-                Text("\(viewModel.timeFormatted())")
+                Text("\(elapsedTimeStr(timeInterval: self.viewModel.remainingTime))")
                     .font(.largeTitle)
                     .foregroundStyle(Color("TextColor"))
                     .padding(.bottom, 20)
@@ -52,14 +61,17 @@ struct StartView: View {
                 // Bottom Button
                 Button(action: {
                     viewModel.isRunning.toggle()
-                    if viewModel.isRunning {
-                        viewModel.startTimer()
-                    } else {
-                        viewModel.stopTimer()
-                    }
                 }, label: {
-                    Text(viewModel.isRunning ? "STOP" : "START")
+                    Text(viewModel.isRunning ? "PAUSE" : "START")
                 }).buttonStyle(MainButton())
+                
+                Button(action: {
+                    self.viewModel.reset()
+                }, label: {
+                    Text("RESET")
+                }).disabled(self.viewModel.isResetDisabled())
+                    .opacity(self.viewModel.isResetDisabled() ? 0 : 1)
+                    .buttonStyle(SecondaryButton())
                 
                 // Fun Fact
                 Text("\(viewModel.factDisplay)")
@@ -70,11 +82,15 @@ struct StartView: View {
                     .padding(.horizontal, 20.0)
                     .padding(.top, 20.0)
                     .opacity(viewModel.isFactDisabled ? 0 : 1)
-                    
+                
                 Spacer()
                 
             }
         }
+    }
+    
+    private func elapsedTimeStr(timeInterval: TimeInterval) -> String {
+        return StartView.formatter.string(from: timeInterval) ?? ""
     }
 }
 
