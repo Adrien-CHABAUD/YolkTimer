@@ -12,6 +12,10 @@ struct YolkTimerApp: App {
     var body: some Scene {
         WindowGroup {
             StartView()
+                .onAppear() {
+                    let notify = NotificationHandler()
+                    notify.askPermission()
+                }
         }
     }
 }
