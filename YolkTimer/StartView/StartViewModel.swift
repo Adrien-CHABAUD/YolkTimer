@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UserNotifications
 
 final class StartViewModel: ObservableObject {
     // UI
@@ -35,6 +36,9 @@ final class StartViewModel: ObservableObject {
         }
     }
     
+    let notify = NotificationHandler()
+    let uuidNotification = UUID().uuidString
+    
     // Start function
     private func start() -> Void {
         // Disable UI
@@ -56,6 +60,8 @@ final class StartViewModel: ObservableObject {
         
         // Take the start moment of the timer
         self.startTime = Date()
+        
+        notify.sendNotification(timeInterval: self.remainingTime, title: "Egg there!", body: "Time's up, your eggs are cooked at the perfection, take them quickly out of the water", uuidString: uuidNotification)
     }
     
     // Stop function
@@ -65,6 +71,7 @@ final class StartViewModel: ObservableObject {
         self.accumulatedTime = self.getElapsedTime()
         self.startTime = nil
         self.isOnHold = true
+        notify.cancelNotification(uuidString: uuidNotification)
     }
     
     // Reset function
@@ -80,6 +87,8 @@ final class StartViewModel: ObservableObject {
         self.selectTime()
         
         self.isOnHold = false
+        
+        notify.cancelNotification(uuidString: uuidNotification)
     }
     
     // Check if the timer run out

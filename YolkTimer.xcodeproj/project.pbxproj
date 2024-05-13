@@ -15,6 +15,7 @@
 		E928ADA72BC034EC00EBA0BF /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E928ADA62BC034EC00EBA0BF /* StartViewModel.swift */; };
 		E928ADAA2BC04B5C00EBA0BF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E928ADA92BC04B5C00EBA0BF /* Model.swift */; };
 		E928ADAC2BC04F6E00EBA0BF /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E928ADAB2BC04F6E00EBA0BF /* Styles.swift */; };
+		E9D6258B2BF27DBF00DB49AB /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D6258A2BF27DBF00DB49AB /* NotificationHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		E928ADA92BC04B5C00EBA0BF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E928ADAB2BC04F6E00EBA0BF /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		E9B5F5392BCDD820008D3FE9 /* YolkTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YolkTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9D6258A2BF27DBF00DB49AB /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		E928AD952BC0205800EBA0BF /* YolkTimer */ = {
 			isa = PBXGroup;
 			children = (
+				E9D625892BF27DAE00DB49AB /* Handlers */,
 				E928ADAB2BC04F6E00EBA0BF /* Styles.swift */,
 				E928AD962BC0205800EBA0BF /* YolkTimerApp.swift */,
 				E928AD982BC0205800EBA0BF /* ContentView.swift */,
@@ -104,6 +107,14 @@
 				E928ADA62BC034EC00EBA0BF /* StartViewModel.swift */,
 			);
 			path = StartView;
+			sourceTree = "<group>";
+		};
+		E9D625892BF27DAE00DB49AB /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				E9D6258A2BF27DBF00DB49AB /* NotificationHandler.swift */,
+			);
+			path = Handlers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +219,7 @@
 			files = (
 				E928ADAA2BC04B5C00EBA0BF /* Model.swift in Sources */,
 				E928ADA52BC034D500EBA0BF /* StartView.swift in Sources */,
+				E9D6258B2BF27DBF00DB49AB /* NotificationHandler.swift in Sources */,
 				E928ADA72BC034EC00EBA0BF /* StartViewModel.swift in Sources */,
 				E928ADAC2BC04F6E00EBA0BF /* Styles.swift in Sources */,
 				E928AD992BC0205800EBA0BF /* ContentView.swift in Sources */,
