@@ -135,21 +135,46 @@ final class YolkTimerTests: XCTestCase {
         }
     }
     
-    // Timer func
-    // test setting timer (3 cases) X
-    // Test timer countdown X
-    // Test timer completion X
-    
-    // Notif func
-    // test notification is sent when timer completes
-    
-    // UI Elements
-    // Test UI components are present and visible
-    // Test UX: tapping on button changes the egg cooking type
-    
-    // Edge test
-    // Test rapid timer changes does not cause errors or incorrect timer durations
-    // Verify that app handles interruptions (incoming calls) without loosing timer progress
-    
-
+    func test_RapidTimerChangesBeforeTesting() throws {
+        // Given
+        let initialTimeInterval: TimeInterval = 5
+        startViewModel.setTimeLimit(initialTimeInterval)
+        startViewModel.setRemainingTime(initialTimeInterval)
+        
+        let expectation = self.expectation(description: "Rapid timer changes before starting should not cause errors.")
+        
+        // Rapidly change the timer duration
+        let changeIntervals: [TimeInterval] = [10, 20, 30, 5, 15]
+        var finalInterval: TimeInterval = 15
+        
+        for interval in changeIntervals {
+            startViewModel.setTimeLimit(interval)
+            startViewModel.setRemainingTime(interval)
+            finalInterval = interval
+        }
+        
+        // Ensure the timer is not running initially
+        XCTAssertFalse(startViewModel.isRunning)
+        
+        // Subscribe to changes in remainingTime
+        startViewModel.$remainingTime
+            .dropFirst()
+            .sink { remainingTime in
+                print("RemainingTime: \(remainingTime)")
+                if remainingTime <= 0 {
+                    expectation.fulfill()
+                }
+            }
+            .store(in: &cancellables)
+        
+        // When
+        startViewModel.isRunning = true
+        
+        // Wait for the timer to complete
+        waitForExpectations(timeout: finalInterval + 1) { error in
+            // Then
+            XCTAssertNil(error, "Expectation should not fail.")
+            XCTAssertLessThanOrEqual(self.startViewModel.remainingTime, 0, "Remaining time should be equal to 0.")
+        }
+    }
 }
