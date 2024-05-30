@@ -4,7 +4,7 @@
   Author: Adrien CHABAUD
   -->
 
-  <img src="/Readme/Adrien_banner.png">
+  <img src="/Readme/egg_timer_banner.png">
 
   # YolkTimer ![Swift Badge](https://img.shields.io/badge/Swift%20Version-5-orange)
 
@@ -27,6 +27,10 @@
   * Offline Functionality: YolkTimer offers offline functionality, allowing you to use the app even when you're not connected to the internet. Whether you're in the kitchen or on the go, YolkTimer is always ready to help you achieve egg-cellent results.
 
   ## Wireframes
+
+  <p align="center">
+  <img src="/Readme/screenshot_wireframe-1.png" width=300 hspace=20><img src="/ReadMe/screenshot_wireframe-2.png" width=300>
+</p>
 
   ## Final App
 
