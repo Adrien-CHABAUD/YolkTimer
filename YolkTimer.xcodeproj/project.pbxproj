@@ -16,6 +16,7 @@
 		E928ADAA2BC04B5C00EBA0BF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E928ADA92BC04B5C00EBA0BF /* Model.swift */; };
 		E928ADAC2BC04F6E00EBA0BF /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E928ADAB2BC04F6E00EBA0BF /* Styles.swift */; };
 		E96FCB9F2C08F06100B6813A /* YolkTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96FCB9E2C08F06100B6813A /* YolkTimerTests.swift */; };
+		E96FCBA72C09054200B6813A /* beep_beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E96FCBA62C09054200B6813A /* beep_beep.mp3 */; };
 		E9D6258B2BF27DBF00DB49AB /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D6258A2BF27DBF00DB49AB /* NotificationHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		E928ADAB2BC04F6E00EBA0BF /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		E96FCB9C2C08F06100B6813A /* YolkTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YolkTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96FCB9E2C08F06100B6813A /* YolkTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YolkTimerTests.swift; sourceTree = "<group>"; };
+		E96FCBA62C09054200B6813A /* beep_beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep_beep.mp3; sourceTree = "<group>"; };
 		E9D6258A2BF27DBF00DB49AB /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 		E928AD952BC0205800EBA0BF /* YolkTimer */ = {
 			isa = PBXGroup;
 			children = (
+				E96FCBA52C09053700B6813A /* Sounds */,
 				E9D625892BF27DAE00DB49AB /* Handlers */,
 				E928ADAB2BC04F6E00EBA0BF /* Styles.swift */,
 				E928AD962BC0205800EBA0BF /* YolkTimerApp.swift */,
@@ -118,6 +121,14 @@
 				E96FCB9E2C08F06100B6813A /* YolkTimerTests.swift */,
 			);
 			path = YolkTimerTests;
+			sourceTree = "<group>";
+		};
+		E96FCBA52C09053700B6813A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				E96FCBA62C09054200B6813A /* beep_beep.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		E9D625892BF27DAE00DB49AB /* Handlers */ = {
@@ -209,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E96FCBA72C09054200B6813A /* beep_beep.mp3 in Resources */,
 				E928AD9E2BC0205A00EBA0BF /* Preview Assets.xcassets in Resources */,
 				E928AD9B2BC0205A00EBA0BF /* Assets.xcassets in Resources */,
 			);

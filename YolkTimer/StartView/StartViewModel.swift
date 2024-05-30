@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import UserNotifications
+import AVFoundation
 
 final class StartViewModel: ObservableObject {
     // UI
@@ -39,6 +40,10 @@ final class StartViewModel: ObservableObject {
     let notify = NotificationHandler()
     let uuidNotification = UUID().uuidString
     
+    // AVAudioPlayer instance
+    private var audioPlayer: AVAudioPlayer?
+    
+    
     // Start function
     private func start() -> Void {
         // Disable UI
@@ -62,6 +67,16 @@ final class StartViewModel: ObservableObject {
         self.startTime = Date()
         
         notify.sendNotification(timeInterval: self.remainingTime, title: "Egg there!", body: "Time's up, your eggs are cooked at the perfection, take them quickly out of the water", uuidString: uuidNotification)
+        
+        // Creating AVAudioPlayer instance for the default system sound
+        if let soundURL = Bundle.main.url(forResource: "beep_beep", withExtension: ".mp3") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.prepareToPlay()
+            } catch {
+                print("Error loading system sound:", error)
+            }
+        }
     }
     
     // Stop function
@@ -94,7 +109,12 @@ final class StartViewModel: ObservableObject {
     // Check if the timer run out
     private func checkCompletion() -> Bool {
         self.remainingTime = self.getRemainingTime()
-        return self.remainingTime <= 0
+        let completion = self.remainingTime <= 0
+        if completion {
+            // If timer completed, play the system sound
+            audioPlayer?.play()
+        }
+        return completion
     }
     
     /*
@@ -135,7 +155,7 @@ final class StartViewModel: ObservableObject {
         switch pickerSelection {
         case .runnyState:
             // 3 min
-            self.changeTimeLimit(timeInterval: TimeInterval(180))
+            self.changeTimeLimit(timeInterval: TimeInterval(30))
         case .softState:
             // 6 min
             self.changeTimeLimit(timeInterval: TimeInterval(360))
