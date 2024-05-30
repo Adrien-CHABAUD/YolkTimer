@@ -51,5 +51,17 @@ final class YolkTimerTests: XCTestCase {
         // Then
         XCTAssertEqual(Int(startViewModel.remainingTime), expectedSoftEggTime, "Soft egg timer should be set to 6 minutes.")
     }
+    
+    func test_settingTimeFor_HardEgg() throws {
+        // Given
+        let expectedHardEggTime = 540 // 9 minutes in seconds
+        startViewModel.pickerSelection = .hardState
+        
+        // When
+        startViewModel.selectTime()
+        
+        // Then
+        XCTAssertEqual(Int(startViewModel.remainingTime), expectedHardEggTime, "Hard egg timer should be set to 9 minutes.")
+    }
 
 }
