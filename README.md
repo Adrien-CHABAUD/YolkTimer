@@ -29,7 +29,7 @@
   ## Wireframes
 
   <p align="center">
-  <img src="/Readme/screenshot_wireframe-1.png" width=300 hspace=20><img src="/ReadMe/screenshot_wireframe-2.png" width=300>
+  <img src="/Readme/screenshot_wireframe-1.png" width=300 hspace=20><img src="/Readme/screenshot_wireframe-2.png" width=300>
 </p>
 
   ## Final App
