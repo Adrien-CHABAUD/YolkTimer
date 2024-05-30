@@ -85,7 +85,6 @@ final class YolkTimerTests: XCTestCase {
         startViewModel.$remainingTime
             .dropFirst() // Ignore the initial value
             .sink { remainingTime in
-                print("Remaining time: \(remainingTime)")
                 if remainingTime < 180 {
                     expectation.fulfill()
                 }
@@ -113,8 +112,7 @@ final class YolkTimerTests: XCTestCase {
         // Creating a weak reference to self inside the closure to avoid a retain cycle
             .sink { [weak self] remainingTime in
                 // Attempt to unwrap self inside the closure, if deallocated returns early
-                guard let self = self else { return }
-                print("Timer remainingTime: \(remainingTime)")
+                guard self != nil else { return }
                 if remainingTime <= 0 {
                     // Ensure that 'fulfill' is only called once
                     if !completionCheck {
@@ -160,7 +158,6 @@ final class YolkTimerTests: XCTestCase {
         startViewModel.$remainingTime
             .dropFirst()
             .sink { remainingTime in
-                print("RemainingTime: \(remainingTime)")
                 if remainingTime <= 0 {
                     expectation.fulfill()
                 }
