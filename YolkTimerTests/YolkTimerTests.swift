@@ -31,6 +31,8 @@ final class YolkTimerTests: XCTestCase {
         super.tearDown()
     }
     
+    //MARK: - Timer Functionalities
+    
     func test_settingTimeFor_RunnyYolk() throws {
         // Given
         let expectedRunnyYolkTime = 180 // 3 minutes in seconds
@@ -95,10 +97,48 @@ final class YolkTimerTests: XCTestCase {
         XCTAssertLessThan(startViewModel.remainingTime, 180, "Timer should count down.")
     }
     
+    func test_TimerCompletion() {
+        // Given
+        let timeInterval: TimeInterval = 5 // Setting a short time interval for testing
+        startViewModel.setTimeLimit(timeInterval)
+        startViewModel.setRemainingTime(timeInterval)
+        startViewModel.isRunning = true
+        
+        let expectation = self.expectation(description: "Timer should complete.")
+        var completionCheck = false
+        
+        // Subscribe to changes in remainingTime
+        startViewModel.$remainingTime
+            .dropFirst()
+        // Creating a weak reference to self inside the closure to avoid a retain cycle
+            .sink { [weak self] remainingTime in
+                // Attempt to unwrap self inside the closure, if deallocated returns early
+                guard let self = self else { return }
+                print("Timer remainingTime: \(remainingTime)")
+                if remainingTime <= 0 {
+                    // Ensure that 'fulfill' is only called once
+                    if !completionCheck {
+                        expectation.fulfill()
+                        completionCheck = true
+                    }
+                }
+            }
+            .store(in: &cancellables)
+        
+        // When
+        waitForExpectations(timeout: timeInterval + 1) { error in
+            // Then
+            XCTAssertNil(error, "Expectation should not fail.")
+            XCTAssertTrue(completionCheck, "Expectation should be fulfilled.")
+            XCTAssertTrue(self.startViewModel.checkCompletion(), "checkCompletion should be true.")
+            XCTAssertFalse(self.startViewModel.isRunning, "Timer should stop running.")
+        }
+    }
+    
     // Timer func
     // test setting timer (3 cases) X
     // Test timer countdown X
-    // Test timer completion
+    // Test timer completion X
     
     // Notif func
     // test notification is sent when timer completes

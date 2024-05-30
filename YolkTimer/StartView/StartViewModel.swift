@@ -107,10 +107,11 @@ final class StartViewModel: ObservableObject {
     }
     
     // Check if the timer run out
-    private func checkCompletion() -> Bool {
+    func checkCompletion() -> Bool {
         self.remainingTime = self.getRemainingTime()
         let completion = self.remainingTime <= 0
         if completion {
+            print("completed")
             // If timer completed, play the system sound
             audioPlayer?.play()
         }
@@ -155,7 +156,7 @@ final class StartViewModel: ObservableObject {
         switch pickerSelection {
         case .runnyState:
             // 3 min
-            self.changeTimeLimit(timeInterval: TimeInterval(30))
+            self.changeTimeLimit(timeInterval: TimeInterval(180))
         case .softState:
             // 6 min
             self.changeTimeLimit(timeInterval: TimeInterval(360))
@@ -189,5 +190,16 @@ final class StartViewModel: ObservableObject {
         case .hardState:
             return "HardBoiledEgg"
         }
+    }
+    
+    //MARK: - Exposed for testing
+    
+    func setTimeLimit(_ timeInterval: TimeInterval) {
+        self.timeLimit = timeInterval
+        self.remainingTime = timeInterval
+    }
+    
+    func setRemainingTime(_ remainingTime: TimeInterval) {
+        self.remainingTime = remainingTime
     }
 }
