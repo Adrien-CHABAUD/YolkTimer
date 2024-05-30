@@ -31,11 +31,11 @@
       shouldAutocreateTestPlan = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO"
+            skipped = "YES"
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E9B5F5382BCDD820008D3FE9"
+               BlueprintIdentifier = "E96FCB9B2C08F06100B6813A"
                BuildableName = "YolkTimerTests.xctest"
                BlueprintName = "YolkTimerTests"
                ReferencedContainer = "container:YolkTimer.xcodeproj">
