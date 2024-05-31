@@ -4,44 +4,60 @@
   Author: Adrien CHABAUD
   -->
 
-  <img src="/Readme/egg_timer_banner.png">
+<img src="/Readme/egg_timer_banner.png" alt="YolkTimer Banner">
 
-  # YolkTimer ![Swift Badge](https://img.shields.io/badge/Swift%20Version-5-orange)
+# YolkTimer ![Swift Badge](https://img.shields.io/badge/Swift%20Version-5-orange)
 
-  ## General Info
+## Overview
 
-  Introducing **YolkTimer**, your ultimate companion for egg-cellent results every time you boil egg. Whether you prefer your egg with a perfectly runny yolk, a delicatley soft boiled texture, or a satisfyingly firm hard boiled consistency, Yolktimer has you covered.
+**YolkTimer** is your ultimate companion for achieving perfectly boiled eggs every time. Whether you prefer a runny yolk, a soft-boiled texture, or a hard-boiled consistency, YolkTimer has you covered with precision and ease.
 
-  With its intuitive interface and precise controls, YolkTimer takes the guesswork out of boiling eggs. Simply select your desired doneness level - runny, soft, or hard boiled and YolkTimer will have the ideal cooking time for you.
+### Features
 
-  Say goodbye to overcooked or undercooked eggs! YolkTimer ensures that every egg is cooked to perfection allowing you to enjoy a delicious breakfast, snack, or meal with confidence.
+- **Customizable Egg Settings**: Choose from three settings—runny, soft-boiled, or hard-boiled. YolkTimer calculates the optimal cooking time for each.
+- **Real-time Countdown Timer**: Monitor your egg's cooking progress with a clear and precise countdown timer.
+- **User-Friendly Interface**: Navigate effortlessly with YolkTimer’s intuitive design.
+- **Timely Notifications**: Get alerts when your eggs are ready, ensuring perfect results every time.
+- **Versatile Use**: Ideal for various egg dishes, including breakfasts, salads, and sandwiches.
+- **Reliable Performance**: Enjoy consistently perfect eggs with YolkTimer’s accurate timing.
+- **Offline Functionality**: Use YolkTimer without an internet connection, whether in the kitchen or on the go.
 
-  ### Features
+## Wireframes
 
-  * Customizable Egg Settings: YolkTimer offers three customizable settings for achieving the perfect egg consistency: runny yolk, soft boiled, and hard boiled. Simply select your preferred setting, and YolkTimer will calculate the optimal cooking time for your eggs.
-  * Real-time Countdown Timer: Keep track of your egg cooking progress with YolkTimer's real-time countdown timer. Watch as the timer counts down to indicate when your eggs will reach your desired level of doneness.
-  * Intuitive Interface: YolkTimer features an intuitive and user-friendly interface, making it easy for users of all levels to navigate and utilize its features effectively.
-  * Notifications: Receive notifications when your eggs are ready to ensure you never miss the perfect cooking moment. YolkTimer will alert you when your eggs have reached your desired level of doneness, allowing you to enjoy them at their best.
-  * Versatile Use: YolkTimer is perfect for a variety of egg-based dishes, including breakfast, salads, sandwiches, and more. Whether you're boiling eggs for a quick meal or incorporating them into your culinary creations, YolkTimer ensures consistent and delicious results.
-  * Reliable Performance: YolkTimer is designed for reliability and accuracy, ensuring that your eggs are cooked to perfection each time you use the app. Say goodbye to overcooked or undercooked eggs and enjoy consistently great results with YolkTimer.
-  * Offline Functionality: YolkTimer offers offline functionality, allowing you to use the app even when you're not connected to the internet. Whether you're in the kitchen or on the go, YolkTimer is always ready to help you achieve egg-cellent results.
+### Selection Screen
+This screen allows users to choose the desired egg doneness level: runny yolk, soft boiled, or hard boiled. It provides a simple and intuitive interface for making the selection.
 
-  ## Wireframes
-
-  <p align="center">
-    Selection Screen &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-    Cooking Screen
-  </p>
-  <p align="center">
-  <img src="/Readme/screenshot_wireframe-1.png" width=300 hspace=20><img src="/Readme/screenshot_wireframe-2.png" width=300>
+<p align="center">
+  <img src="/Readme/screenshot_wireframe-1.png" width=300 alt="Selection Screen">
 </p>
 
-  ## Final App
+### Cooking Screen
+The cooking screen displays the real-time countdown timer, showing the remaining time for the selected egg doneness. It updates continuously to keep the user informed about the cooking progress.
 
-  ## Technologies Used
+<p align="center">
+  <img src="/Readme/screenshot_wireframe-2.png" width=300 alt="Cooking Screen">
+</p>
 
-  * Xcode 15.2: The YolkTimer app is developed using Xcode, Apple's integrated development environment (IDE) for macOS. Xcode provides all the necessary tools for designing, coding, testing, and debugging iOS apps.
-  * Swift 5.9.2: The YolkTimer app is written in Swift, Apple's programming language for developing iOS, macOS, watchOS, and tvOS apps. Swift 5.9.2 is the specific version of Swift used in this project, offering the latest features and improvements.
-  * Figma: Figma is a collaborative interface design tool used for creating user interface (UI) designs, prototypes, and design systems. The UI and visual elements of the YolkTimer app are designed using Figma, allowing for efficient collaboration and iteration during the design process.
+## Final Product Showcase
 
-By leveraging Xcode, Swift 5.9.2, and Figma, the YolkTimer app delivers a seamless and intuitive user experience for boiling eggs to perfection.
+Take a closer look at YolkTimer in action with this showcase. Each image provides a glimpse into the app's intuitive interface and powerful features. From selecting your preferred egg doneness level to monitoring the real-time countdown timer, YolkTimer ensures a seamless and enjoyable cooking experience.
+
+<p align="center">
+  <img src="/Readme/mock_yolk_timer.gif" alt="YolkTimer in Action">
+</p>
+
+## Technologies Used
+
+- **Xcode 15.4**: Developed using Xcode, Apple's IDE for macOS, providing all necessary tools for designing, coding, testing, and debugging iOS apps.
+- **Swift 5.10**: Written in Swift, Apple's programming language for iOS development, ensuring the latest features and improvements.
+- **Figma**: UI and visual elements designed in Figma, a collaborative design tool, facilitating efficient iteration and collaboration.
+
+## Getting Started
+
+To get started with YolkTimer, clone the repository and open it in Xcode. Ensure you have the correct version of Swift installed.
+
+```sh
+git clone https://github.com/your-username/YolkTimer.git
+cd YolkTimer
+open YolkTimer.xcodeproj
+
